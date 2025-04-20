@@ -43,6 +43,11 @@ Anote o IP IPv4 da sua conexão principal. Exemplo: 192.168.0.101 (caso o seu IP
 ```powershell
 netsh interface portproxy add v4tov4 listenport=22 listenaddress=192.168.0.101 connectport=22 connectaddress=$($(wsl hostname -I).Trim())
 ```
+Este comando cria uma regra de redirecionamento de IP. Caso o IP digitado tenha sido incorreto, a remoção da regra pode ser efetuada com o seguinte comando:
+
+```powershell
+netsh interface portproxy delete v4tov4 listenport=22 listenaddress=192.168.0.101
+```
 
 3) Para confirmar que funcionou:
 
